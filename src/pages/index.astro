@@ -1,15 +1,1232 @@
----
----
-
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Corpar - HOME</title>
+    
+    <script>
+            const slider = document.querySelector('.slider');
+            const images = slider.querySelectorAll('img');
+            const captions = slider.querySelectorAll('h1');
+            const previousBtn = slider.querySelector('.previous');
+            const nextBtn = slider.querySelector('.next');
+            let currentIndex = 0;
+            function showImage(index) {
+                for (let i = 0; i < images.length; i++) {
+                    images[i].style.display = 'none';
+                    captions[i].style.display = 'none';
+                    
+                }
+
+
+                images[index].style.display = 'block';
+                captions[index].style.display = 'block';
+            }
+
+
+            function previousImage() {
+                currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+                showImage(currentIndex);
+            }
+
+
+            function nextImage() {
+                currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+                showImage(currentIndex);
+            }
+
+
+            previousBtn.addEventListener('click', previousImage);
+            nextBtn.addEventListener('click', nextImage);
+
+
+            // Show the initial image
+            showImage(currentIndex);
+    </script>
+         
+
+    <style>
+       *{
+        margin: 0;
+        padding: 0;
+        font-family: helvetica;
+       }
+
+
+       /* HEADER  */
+       header {
+            position: relative;
+            z-index: 1000;
+            height: 100px;
+            background: #0d354b;
+            padding: 0 50px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+       }
+       .img-logo {
+            width: 400px;
+            position: absolute;
+            z-index: 100;
+            top: 130px;
+            left: 150px;
+            order: 2;
+            transition: 0.4s;
+           
+       }
+       .img-logo:hover {
+        width: 450px;
+        transition: 0.5s;
+       }
+       .menu a{
+            color: white;
+            text-decoration: none;
+            padding: 0 50px;
+            transition: 0.4s;
+            order: 1;
+       }
+       .menu {
+            position: absolute;
+            z-index: 0;
+            right: 20%;
+       }
+       .mostrar-menu, .esconder-menu {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+            transition: 0.4s;
+       }
+       .mostrar-menu {
+            order: 1;
+       }
+       .mostrar-menu:hover, .esconder-menu:hover, .menu a:hover {
+            font-size: 20px;
+            color: #00A8B2;
+       }
+       #check {
+            display: none;
+       }
+       .cambio-idioma {
+            position: absolute;
+            top: 35px;
+            right: 100px;
+       }
+       .cambio-idioma a{
+            color: white;
+            text-decoration: none;
+       }
+       .cambio-idioma a:hover {
+            color:#00A8B2;
+            transition: 0.4s;
+       }
+       .img-idioma {
+            margin-right: 10px;
+            width: 30px;
+       }
+       #a-español {
+            color: #00A8B2;
+       }
+       .cambio-idioma-mobile {
+            display: none;
+       }
+       /* SLIDER  */
+       .slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+            margin-top: -2px;
+        }
+
+
+        .slider img {
+            width: 100%;
+            display: none;
+        }
+
+
+        .slider img:first-child {
+            display: block;
+        }
+
+        #h1-1 {
+            position: relative;
+            top: 0%;
+            left: 0%;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            font-size: 40px;
+            font-weight: bold;
+            padding-top: 40px;
+            background-color: transparent;
+            order: 2;
+        }
+        #h1-2 {
+            position: relative;
+            top: 0%;
+            left: 0%;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            font-size: 40px;
+            font-weight: bold;
+            padding-top: 40px;
+            background-color: transparent;
+            order: 2;
+        }
+        .slider h1 {
+            position: relative;
+            top: 0%;
+            left: 0%;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 900px;
+            font-size: 40px;
+            font-weight: bold;
+            padding-top: 20px;
+            background-color: transparent;
+            order: 2;
+        }
+
+        .slider-titulo {
+            display: flex;
+            position: absolute;
+            top: 40%;
+            left: 37%;
+            width: 1050px;
+            background: transparent;
+
+        }
+        .slider button {
+            position: relative;
+            top: 0%;
+            border: none;
+            background-color: transparent;
+            color: white;
+            font-size: 80px;
+            padding: 0px 20px;
+            cursor: pointer;
+        }
+
+
+        .slider button.previous {
+            order: 1;
+            left: 0px;
+        }
+
+
+        .slider button.next {
+            order: 3;
+            left: 0px;
+        }
+        /* SOMOS */
+        .container-somos{
+            position: relative;
+            overflow: visible;
+            padding-bottom: 40px;
+        }
+        .container-text {
+            background: #ECECEC;
+            position: relative;
+      
+            opacity: 0.8;
+            width: 65%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            border-radius: 0px 0px 20px 20px;
+            padding-bottom: 50px;
+        }
+        .container-text h2 {
+            position: relative;
+            z-index: 100;
+            color: #003A52;
+            font-weight: bold;
+            padding-top: 50px;
+            padding-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .container-text p {
+            padding: 0 15% 0 15%;
+            text-align: left;
+        }
+        .line-degrade img{
+            width: 100%;
+            position: absolute;
+            top: -33px;
+            right: 0px;
+            z-index: 300;
+        }
+       
+        /* TRABAJAMOS */
+      
+        .container-trabajamos-image{
+            background-image: url("https://i.pinimg.com/originals/e5/6c/2f/e56c2f6dbb9803c601036872caf82811.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 500px;
+            padding: 100px;
+        }
+       
+        .container-trabajamos-text {
+            background: #003A52;
+            opacity: 0.9;
+            color: white;
+            width: 70%;
+            text-align: center;
+            padding: 20px;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+		.container-trabajamos-text h2{
+			color: #00A8B2;
+			font-weight: bold;
+		}
+        
+        .trabajamos-opciones img{
+            width: 70%;
+            position: absolute;
+            top: 1800px;
+            left: 300px;
+        }
+        .container-opciones img{
+            width: 150px;
+            float: left;
+
+           }
+
+        /* TRABAJAMOS OPCIONES  */
+
+
+        .clickable-image {
+            cursor: pointer;
+        }
+
+        .container-script {
+            display: flex;
+            position: relative;
+        }
+
+        .popup {
+            display: none;
+            margin-right: auto;
+            margin-left: auto;
+            width: 400px;
+            height: 300px;
+            padding: 20px;
+            border-radius: 20px;
+            color: white;
+            background-color: #003A52;
+            z-index: 9999;
+            opacity: 0;
+            transition: 0.4s;
+        }
+        .popup h2 {
+            color: #00A8B2;
+        }
+       
+        .opciones {
+            margin-right: 100px;
+            margin-left: 0px;
+            width: 400px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #icono-1 {
+            margin-right: 20px;
+        }
+        #icono-3 {
+            margin-right: 40px;
+        }
+        .opciones img {
+           transition: 0.4s
+        }
+        .opciones img:hover {
+            width: 180px;
+            transition: 0.4s;
+        }
+        .img-barrita img{
+            position: relative;
+            left: 160px;
+            width: 65%;
+        }    
+        .trabajamos-opciones-monitor {
+            width: 85%;
+            position: relative;
+            top: -200px;
+            left: 280px;
+        } 
+        .iconos-trabajamos {
+            position: absolute;
+            top: 210px;
+            left: 0px;
+        }
+        #icono2 {
+            margin-left: 100px; 
+        }
+        #icono3 {
+            margin-left: 80px; 
+        }
+     
+        .iconos-trabajamos img{
+            width: 200px;
+            margin-left: 95px;
+            margin-right: 197px;
+        }    
+
+        /* SOLUCIONES */
+       
+        .container-soluciones-image{
+            background-image: url("https://i.pinimg.com/originals/bd/53/f3/bd53f30a4714e308dba82e779c4b7f0b.png");
+            background-size: 100%;
+            padding: 20px;
+            
+        }
+        .container-opciones-soluciones {
+            display: flex;
+            padding-top: 50px;
+            padding-bottom: 200px;
+            justify-content: center;
+        }
+        .opcion-soluciones {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #EDEDED;
+            opacity: 0.8;
+            width: 500px;
+            border-radius: 30px;
+            margin-left: 30px;
+            color: #003A52;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .container-soluciones-text {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            text-align: center;
+            padding-top: 80px;
+            background: transparent;
+            color: white;
+        }
+        .container-soluciones-text h1 {
+            color: #00A8B2;
+            font-weight: bold;
+        }
+        h3 {
+            text-align: left;
+            padding-top: 20px;
+            font-weight: bold;
+            padding-left: 29px;
+            padding-bottom: 15px;
+        }
+        
+        #lista-pesado h3 {   
+            padding-left: 0px;
+        }
+        #lista-pesado ul {   
+            padding-left: 20px;
+        }
+        .opcion-soluciones ul {
+            padding-top: 0px;
+            padding-left: 40px;
+        }
+        
+        .container-trabajamos-movil {
+            display: none;
+        }
+    
+        /* Estilos para los elementos de la lista */
+        li {
+            padding: 5px 0;
+        }
+
+        /* CONTACTO  */
+
+        
+        footer {
+            background-color: #003A52;
+            display: flex;
+            padding: 150px;
+        }
+        .logo-footer {
+            margin-left: 20%;
+            margin-right: 10%;
+        }
+        footer img{
+            justify-content: center;
+            margin-left: 2%;
+            width: 350px;
+        }
+        .redes {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .redes img{
+            width: 50px;
+        }
+        .redes h2 {
+            color: white;
+            font-weight: bold;
+            padding-left: 20px;
+            padding-bottom:20px;
+        }
+        .info {
+            margin-left: 10%;
+            color: white;
+        }
+        .info img {
+            width: 50px;
+            padding-right: 10px;
+            padding-top: 10px;
+        }
+        .info a {
+            color: white;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .info a:hover {
+            color: #00A8B2;
+            transition: 0.4s;
+        }
+        .correos {
+            display: flex;
+        }
+        
+        .correo-links {
+            display: flex;
+            flex-direction: column;
+        }
+        .correos img{
+            align-self: flex-start;
+        }
+        .telefono {
+            display: flex;
+        }
+        .telefono a {
+            padding-top: 20px;
+        }
+        .ubicacion {
+            display: flex;
+        }
+        .ubicacion a{
+            padding-top: 20px;
+        }
+        .ubicacion img{
+            max-width: 100%;
+        }
+        .made-in-china {
+            display: flex;
+            background-color: #003A52;
+            justify-content: center;
+        }
+        .made-in-china a{
+            text-decoration: none;
+            color: #086991;
+            
+            
+        }
+        .made-in-china img {
+            width: 80px;
+            margin-left: 10px;
+            padding-bottom: 10px;
+        }
+      
+      
+        
+
+       /* RESPONSIVE  */
+       @media(max-width: 768px){
+
+
+        /* HEADER */
+        header {
+            display: flex;
+            height: 100px;
+        }
+        .cambio-idioma {
+            display: none;
+        }
+        .cambio-idioma-x {
+            margin-top: 100px;
+        }
+        .img-logo {
+            
+            top: 10px;
+            left: 30px;
+            width: 150px;
+            z-index: 100;
+       }
+        .menu{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #003A52;
+            right: 100%;
+            top: 0;
+            text-align: center;
+            padding: 100px 0;
+            z-index: 500;
+            transition: 0.8s;
+        }
+        .mostrar-menu {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+        .mostrar-menu, .esconder-menu {
+            display: block;
+            font-size: 50px;
+            
+       }
+       .menu a{
+            display: block;
+            padding: 20px;
+       }
+       .esconder-menu {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+       }
+       #check:checked ~ .menu {
+            right: 0;
+       }
+       .cambio-idioma-mobile {
+            width: 100%;
+            display: grid;
+            align-items: center;
+            padding-top: 50px;
+            
+       }
+       .cambio-idioma-x {
+            margin-left: auto;
+            margin-right: auto;
+            
+       }
+       .cambio-idioma-x a {
+            margin-left: auto;
+            margin-right: auto;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            
+       }
+       .img-idioma-x{
+            width: 30px;
+            margin-left: -20px;
+       }
+       
+       /* SLIDER RESPONSIVE*/
+       #h1-1 {
+            position: relative;
+            top: 0%;
+            left: 0%;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 250px;
+            font-size: 25pt;
+            font-weight: bold;
+            padding-top: 40px;
+            background-color: transparent;
+            order: 2;
+        }
+        #h1-2 {
+            position: relative;
+            top: 0%;
+            left: 0%;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 250px;
+            font-size: 30px;
+            font-weight: bold;
+            padding-top: 40px;
+            background-color: transparent;
+            order: 2;
+        }
+        #h1-3 {
+            position: relative;
+            top: 0%;
+            left: 0%;
+            color: white;
+            text-align: center;
+            max-width: 250px;
+            font-size: 17pt;
+            font-weight: bold;
+            background-color: transparent;
+            order: 2;
+        }
+       
+       .slider-titulo {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            width: 400px;
+            background: transparent;
+
+        }
+       .slider img{
+            width: 100%;
+            height: 300px;
+       }
+       .slider button {
+           
+            font-size: 40pt;
+       }
+       
+       /* SOMOS RESPONSIVE*/
+       .container-somos {
+            background-image: url("")
+       }
+        .container-somos h2{
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 0;
+        }
+        .container-text {
+            padding: 0 0 0 0;
+            text-align: justify;
+            width: 90%;
+        }
+        .container-text p {
+            padding: 5%;
+            padding-top: 1%;
+        }
+       
+       /* TRABAJAMOS RESPONSIVE */
+      
+       .container-trabajamos-image{
+            background-image: url("https://i.pinimg.com/originals/e5/6c/2f/e56c2f6dbb9803c601036872caf82811.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 80%;
+            width: 100%;
+            padding: 10px;
+        }
+       .container-trabajamos-text {
+            text-align: left;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 10pt;
+       }
+       .line-degrade img{
+            display: none;
+        }
+        .trabajamos-opciones img{
+            display: none;
+        }
+        .trabajamos-opciones-monitor {
+            display: none;
+        }
+        .container-trabajamos {
+            display: none;
+        }
+
+        /* TRABAJAMOS MOBILE  */
+        .container-trabajamos-movil {
+            background-image: url("https://i.pinimg.com/originals/ef/c5/48/efc54893db4517aa31e12d55f67aaec7.jpg");
+            background-size: cover;
+            width: 100%;
+            height: 1000px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+        }
+        .container-texto{
+            text-align: center;
+            color: #fff;
+            padding-top:100px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 50px;
+        }
+        .container-texto h2 {
+            color: #00A8B2;
+            padding-bottom: 20px;
+            font-weight: bold;
+        }
+        
+
+        .slider-trabajamos {
+            color: #fff;
+            padding: 40px;
+        }
+        .slider-trabajamos h1 {
+            font-weight: bold;
+        }
+        #carouselExampleIndicators {
+            
+            height: 170px;
+            margin-top: 50px;
+            padding: 50px;
+        }
+        .carousel-container {
+            
+            margin: 10px;
+            height: 550px;
+        }
+        
+        #carouselExampleIndicators h1 {
+            font-size: 25pt;
+        }
+        .carousel-indicators {
+            list-style: none; 
+            display: flex; 
+            position: absolute;
+            top: 350px;
+            margin: 20px 0; 
+        }
+
+        .carousel-indicators li {
+            width: 12px; 
+            height: 12px; 
+            background-color: #ccc; 
+            border-radius: 50%; 
+            margin: 0 5px;
+            cursor: pointer; 
+        }
+
+        .carousel-indicators li.active {
+            background-color: #ededed; 
+            width: 13px;
+            height: 13px;
+        
+        }
+
+        
+        /* SOLUCIONES RESPONSIVE */
+      
+        .container-opciones-soluciones {
+            display: block;
+        }
+        .opcion-soluciones {
+            width: 300px;
+            margin-top: 20px;
+            margin-left:auto;
+            margin-right: auto;
+        }
+        .container-soluciones-text {
+            text-align: left;
+        }
+        .container-soluciones-image{
+            background-image: url("https://i.pinimg.com/originals/bd/53/f3/bd53f30a4714e308dba82e779c4b7f0b.png");
+            background-size: cover;
+            padding: 20px;
+            
+        }
+        
+     
+
+        /* FOOTER RESPONSIVE */
+        footer {
+            background-color: #003A52;
+            padding: 0;
+        }
+
+        .container-footer {
+            display: block;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            padding-top: 100px;
+            padding-bottom:100px;
+        }
+
+        .logo-footer {
+            width: 200px;
+            order: 1;
+        }
+
+        .info {
+            padding-top: 50px;
+            padding-bottom:50px;
+            order: 2;
+        }
+
+        .redes {
+            margin-top: 40px;
+            order: 3;
+        }
+
+        .container-footer img {
+            justify-content: center;
+            margin-left: 2%;
+        }
+
+        .redes img {
+            width: 50px;
+            margin-left: 20px;
+        }
+
+        .redes h2 {
+            color: white;
+            font-weight: bold;
+            padding-top: 30px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
+        
+        .info img {
+            width: 50px;
+            padding-right: 10px;
+            padding-top: 10px;
+        }
+     
+        .info a {
+            display: block; 
+            align-items: center; 
+            color: white;
+            text-decoration: none;
+            white-space: normal;
+            
+        }
+
+        .info a:hover {
+            color: #00A8B2;
+            transition: 0.4s;
+        }
+        .telefono {
+            display: flex;
+        }
+        .telefono a {
+            padding-top: 20px;
+        }
+        .ubicacion {
+            padding-top: 10px;
+        }
+        .ubicacion a{
+            padding-top: 10px;
+        }
+        .ubicacion img{
+            flex-shrink: 0;
+            align-self: flex-start;
+        }
+        .made-in-china {
+            margin-top: -1px;
+        }
+        .redes h2 {
+            display: none;
+        }
+        
+       }
+       @media(min-width: 768px){
+        .opcion-soluciones {
+            width: 500px;
+            margin-top: 20px;
+            margin-left:auto;
+            margin-right: auto;
+        }
+        .redes h2 {
+            display: none;
+        }
+       }
+       @media only screen and (device-width: 360px) and (device-height: 740px) and (-webkit-device-pixel-ratio: 4) {
+        .slider-titulo {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 20%;
+            left: 0%;
+            width: 400px;
+            background: transparent;
+
+        }
+        .redes h2 {
+            display: none;
+        }
+       }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="img-logo">
+                <img class="img-logo" src="https://i.pinimg.com/originals/f9/79/48/f97948fa42cf2782afb80edd77bc6b51.png" alt="" >
+            </div>
+        <input type="checkbox" id="check">
+        <label for="check" class="mostrar-menu">
+            &#8801
+        </label>
+            <nav class="menu">
+            <a href="">HOME</a>
+            <a href="#container-somos">Sobre Nosotros</a>
+            <a href="#container-trabajamos">Servicios</a>
+            <a href="#container-footer">Contacto</a>
+            <label for="check" class="esconder-menu">&#215</label>
+        </nav>
+        <div class="cambio-idioma">
+            <img class="img-idioma" src="https://i.pinimg.com/originals/ce/df/30/cedf3014fe32ca29fac0fdca9953ef1e.png">
+            <a href="" id="a-español">Español</a> |
+            <a href="http://localhost:3000/portugues" id="a-portugues">Portugués</a>
+        </div>
+        <div class="cambio-idioma-mobile">
+            
+            <div class="cambio-idioma-x">
+                <img class="img-idioma-x" src="https://i.pinimg.com/originals/ce/df/30/cedf3014fe32ca29fac0fdca9953ef1e.png">
+                <a href="" id="a-español">Español</a> |
+                <a href="http://localhost:3000/portugues" id="a-portugues">Portugués</a>
+            </div>
+        </div>
+        
+
+        </header>
+        <div class="slider">
+            <div class="slider-titulo">
+                <h1 id="h1-1">Asesoramiento legal de alta calidad</h1>
+                <h1 id="h1-2">Planes Estrategicos personalizados</h1>
+                <h1 id="h1-3">Asesoria para el desarrollo de proyectos de inversión y servicios de comercio exterior</h1>
+                <button class="previous">&#8249;</button>
+                <button class="next">&#8250;</button>
+            </div>
+            <img src="https://i.pinimg.com/originals/2f/d5/5b/2fd55b6a8566a8c92a5f9e2a60b094a7.png">
+            
+            <img src="https://i.pinimg.com/originals/c3/cc/87/c3cc87a6501a37a9ef6e354ebc6fd8ef.png">
+           
+            <img src="https://i.pinimg.com/originals/d9/f5/e7/d9f5e711927905c1b19ea025b48db139.png">
+            
+            
+        </div>
+
+
+        <!-- SOMOS -->
+
+
+        <section id="seccion1">
+            <div class="container-somos" id="container-somos">
+               
+                <div class="line-degrade"><img src="https://i.pinimg.com/originals/f7/c3/9d/f7c39d759f00c5b6190425fb0ecc7fbd.png"></div>
+                <div class="container-text">
+                    <h2>Somos</h2>
+                        <p>Somos un
+                             equipo de profesionales especializados en una amplia gama de soluciones, con el objetivo de brindar un asesoramiento integral, de alta calidad y cuidadosamente diseñado para cada tipo de entidad que desee iniciar sus actividades comerciales a nivel nacional o internacional, recibir asesoría legal y crear planes estratégicos personalizados que apunten a optimizar las ganancias y posicionamiento de la organización.
+                        </p>
+                    <h2>¿Qué Ofrecemos?</h2>
+                        <p>CORPAR ofrece un asesoramiento integral y servicios de apoyo a proyectos y regímenes especiales de inversión.
+                            Nos destacamos por la atención dedicada a las necesidades específicas de cada proyecto, independientemente de la etapa en la que se encuentren sus actividades. Sabemos que lo único permanente en el mundo de negocios es el cambio, y nuestro equipo que cuenta con una gran trayectoria en materia legal, financiera y comercial, asegurará un acompañamiento proactivo con estrategias de vanguardia.
+                            </p>
+                    <h2>¿Quiénes son nuestros clientes?</h2>
+                        <p>Nuestro objetivo es brindar soluciones a PYMEs, grandes empresas, inversionistas u organizaciones nacionales, extranjeras y multinacionales. CORPAR ajusta sus servicios a todo tipo de empresa u organización, sea para su creación, reinvención, crecimiento o desembarque en el país.
+                        </p>
+                </div>
+            </div>
+        </section>
+        <!-- TRABAJAMOS -->
+        <section id="seccion2">
+            <div class="container-trabajamos" id="container-trabajamos">
+                <div class="container-trabajamos-image">
+                    <div class="container-trabajamos-text">
+                        <h2>Como Trabajamos</h2>
+                        <p>Buscamos principalmente simplificar todos los pasos de la ejecución de nuestros proyectos, apuntando a ganar tiempo a favor del cliente para obtener resultados rápidos, y optimizando recursos para llegar a la meta de la mejor manera. 
+							<br><br>Para lograrlo, dividimos nuestras propuestas en tres fases:
+                        </p>
+                    </div>
+                </div>
+                <div class="trabajamos-opciones-monitor">
+                    <div class="img-barrita">
+                        <img src="https://i.pinimg.com/originals/e7/d1/87/e7d187025fadb5c8d53b42a3155b8d94.png" alt="">
+                    </div>
+                    <div class="container-script">
+                        
+                            <div class="opciones">
+                                <img src="https://i.pinimg.com/originals/17/6b/c8/176bc8552bab5d4b987438e6ca4cbbcd.png" id="icono-1" alt="Imagen" width="150px" class="clickable-image">      
+                                <div id="popup" class="popup">
+                                    <h2>Relevamiento</h2>
+                                    <p>En la primera y más importante fase, nos dedicamos a conocer al cliente, sus ideas, metas y necesidades. Con la información obtenida presentamos la propuesta acorde al proyecto que podrá abarcar estudios de mercado, asuntos regulatorios, propiedad intelectual, regímenes especiales y otros servicios.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="opciones">
+                                <img src="https://i.pinimg.com/originals/14/8a/46/148a460985f594a61297e4b087d7dcdd.png" alt="Imagen" width="150px" class="clickable-image2">
+                                <div id="popup2" class="popup">
+                                    <h2>Ejecución</h2>
+                                    <p>En esta etapa nos encargamos de que todos los pasos detallados en la propuesta aceptada sigan su rumbo y se vayan cumpliendo con agilidad, siempre manteniendo una estrecha comunicación con el cliente.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="opciones">
+                                <img src="https://i.pinimg.com/originals/80/22/94/80229439f90e438b91a69d1eb99ca592.png" id="icono-3"alt="Imagen" width="150px" class="clickable-image3">
+                                <div id="popup3" class="popup">
+                                    <h2>Optimización de resultados</h2>
+                                    <p>Una vez finalizado todo el proceso de ejecución, nuestro compromiso con el proyecto no acaba. En esta etapa ofrecemos una continuidad en la búsqueda de los mejores resultados, a través de estrategias comerciales, servicios de consultoría y auditoría.</p>
+                                </div>
+                        </div>
+                        <div class="iconos-trabajamos">
+                            <img id="icono1" src="https://i.pinimg.com/originals/7f/0f/6f/7f0f6fcc4fad89e7c7b631b84631fe72.png" alt="">
+                            <img id="icono2" src="https://i.pinimg.com/originals/09/cf/7f/09cf7fc6680c4e7a787c576f03da2961.png" alt="">
+                            <img id="icono3" src="https://i.pinimg.com/originals/23/fd/ef/23fdef6f649f6b7ee3c21fea392d5fd7.png" alt="">
+                        </div>
+                       
+    
+                        
+                </div>
+                      
+                    <script src="./app.js"></script>
+                </div>
+               
+            </div>
+            <div class="container-trabajamos-movil">
+                <div class="container-texto">
+                    <h2>¿Como trabajamos?</h2>
+                    <p>Buscamos principalmente simplificar todos los pasos de la ejecución de nuestros proyectos, apuntando a ganar tiempo a favor del cliente para obtener resultados rápidos, y optimizando recursos para llegar a la meta de la mejor manera. Para lograrlo, dividimos nuestras propuestas en tres fases:
+                    </p>
+                </div>
+                <div class="carousel-container">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        
+                        <div class="carousel-inner">
+                          <div class="carousel-item active"> 
+                            <h2>Relevamiento</h2>
+                            <p>En la primera y más importante fase, nos dedicamos a conocer al cliente, sus ideas, metas y necesidades. Con la información obtenida presentamos la propuesta acorde al proyecto que podrá abarcar estudios de mercado, asuntos regulatorios, propiedad intelectual, regímenes especiales y otros servicios.</p>
+                          </div>
+                          <div class="carousel-item">
+                            <h2>Ejecución</h2>
+                            <p>En esta etapa nos encargamos de que todos los pasos detallados en la propuesta aceptada sigan su rumbo y se vayan cumpliendo con agilidad, siempre manteniendo una estrecha comunicación con el cliente.
+                            </p>
+                          </div>
+                          <div class="carousel-item">
+                            <h2>Optimización de resultados</h2>
+                            <p>Una vez finalizado todo el proceso de ejecución, nuestro compromiso con el proyecto no acaba. En esta etapa ofrecemos una continuidad en la búsqueda de los mejores resultados, a través de estrategias comerciales, servicios de consultoría y auditoría.   
+                            </p>
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only"></span>
+                        </a>
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                          </ol>
+                      </div>
+                
+               
+            </div>
+        </section>
+        <!-- SOLUCIONES -->
+        <div class="container-soluciones">
+            <div class="container-soluciones-image">
+                <div class="container-soluciones-text">
+                    <h1>Soluciones</h1>
+                    <p>CORPAR busca acompañar al cliente con soluciones que abarcan desde acciones esenciales previas al inicio de actividades de una organización, auditorías de situación financiera u operativa, y hasta evaluaciones destinadas a la creación de estrategias dirigidas al logro de metas establecidas por el cliente.
+                    </p>
+                </div>
+                <div class="container-opciones-soluciones">
+                    <div class="opcion-soluciones">
+                        <div class="soluciones-lista">
+                            <h3>Servicios Generales</h3>
+                            <ul>
+                                <li>Creación, compra o venta de personas jurídicas</li>
+                                <li>Acompañamiento en asuntos migratorios y relocalizaciones</li>
+                                <li>Puesta a punto según requisitos legales que regulan las actividades del cliente</li>
+                                <li>Asuntos aduaneros, importación y exportación</li>
+                                <li>Servicio de directorio y administración temporal</li>
+                                <li>Servicios contables</li>
+                                <li>Elaboración de proyectos de maquila y regímenes especiales</li>
+                              </ul>
+                        </div>
+                       
+                    </div>
+                    <div class="opcion-soluciones">
+                        <div class="soluciones-lista">
+                            <h3>Propiedades Intelectuales</h3>
+                        <ul>
+                            <li>Estrategia para creación de nuevas marcas acorde a regulaciones internacionales</li>
+                            <li>Asesoramiento para registro, compra o venta de marcas, patente y derecho de autor</li>
+                            <li>Asesoramiento preventivo y acompañamiento de litigios</li>
+                          </ul>
+                        </div>
+                        
+                    </div>
+                    <div class="opcion-soluciones">
+                        <div class="soluciones-lista" id="lista-pesado">
+                            <h3>Oportunidades de Negocios</h3>
+                        <ul>
+                            <li>Estudio de mercado</li>
+                            <li>Análisis de rentabilidad</li>
+                            <li>Plan de marketing y estrategias de venta</li>
+                            <li>Asesoría jurídica</li>
+                            <li>Asesoría contable</li>
+                            <li>Auditoría</li>
+                          </ul>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        
+        <!-- CONTACTO -->
+    <footer id="seccion3">
+        <div class="container-footer" id="container-footer" style="display: flex; align-items: center;">
+            <div class="redes">
+                <h2>Contacto: </h2>
+                <a href="https://www.facebook.com/profile.php?id=100092258780549&mibextid=LQQJ4d"  target="_blank"><img src="https://i.pinimg.com/originals/0c/52/13/0c5213302e59725d1e2c2f578cd9a672.png" alt=""></a>
+                <a href="https://wa.me/message/A2K737X3R2AML1"  target="_blank"><img src="https://i.pinimg.com/originals/22/ed/27/22ed27c72bc46fa59a4c8d5c4f44bbf3.png" alt=""></a>
+                <a href="https://instagram.com/corparconsulting?igshid=OGQ5ZDc2ODk2ZA=="  target="_blank"><img src="https://i.pinimg.com/originals/54/56/a1/5456a1952362635a9602cf7def4f17c2.png" alt=""></a>
+            </div>
+            <img class="logo-footer" src="https://i.pinimg.com/originals/f9/79/48/f97948fa42cf2782afb80edd77bc6b51.png" alt="">
+            <div class="info">
+                
+                
+                <div class="correos">
+                    <img src="https://i.pinimg.com/originals/4c/c3/9e/4cc39e0d96edd3d05bf37bd2fd98df65.png" alt="">
+                    <div class="correo-links">
+                        <a href="mailto:noeliacorrea@corpar.com.py" style="font-weight: bold;">noeliacorrea@corpar.com.py </a>
+                        <a href="mailto:luisdasilva@corpar.com.py" style="font-weight: bold;">luisdasilva@corpar.com.py</a>
+                        <a href="mailto:marcas@corpar.com.py" style="font-weight: bold;">marcas@corpar.com.py</a>
+                    </div>
+                </div>
+                <div class="telefono">
+                    <img src="https://i.pinimg.com/originals/ed/e5/41/ede5419a0bec0fc969c55d45df1755f6.png" alt="">
+                    <a href="tel:+595974500320" style="font-weight: bold;">+595 974 500320</a><br>
+                </div>
+                <div class="ubicacion">
+                    <img id="ubicacion-img"src="https://i.pinimg.com/originals/6f/a7/bb/6fa7bb52975f60412f9d44ca28cd491d.png" alt="">
+                    <a href="https://goo.gl/maps/UY3ZquYzpcXmkMyo6"  target="_blank">Edif.Recoleta Business Center - Piso 2. Asunción Paraguay</a>
+                </div>
+                </div>
+                
+        </div>
+        
+    </footer>
+    <div class="made-in-china">
+        <a class="link-1712" href="">Sitio web diseñado por </a>
+        <a class="link-1712" href=""><img src="https://i.pinimg.com/originals/e1/09/6a/e1096a7646323cdd57df9abc5a26e684.png" alt=""></a>
+    </div>
+        
+        
+    </main>
+
+</body>
 </html>
+
+
+
